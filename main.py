@@ -25,20 +25,15 @@ while 6 != len(wentList):
     if len(tempList) == 0:
         break
     else: # 최소 거리인 값을 찾아 인덱스를 구하고, 거기로 이동하는 만큼 이동거리에 추가.
-        # temp1 = list(map(lambda x: nodeCost[current][x],tempList))
-        # temp = min(temp1) # 디버그 할때 뭐 들어가는지 보려고..
-        # distanceStack += temp
-        # current = comparingList.index(temp)
-
         tempCost = []
-        for i in tempList:
+        for i in tempList: # 비용 비교용 배열인 tempCost만들기
             tempCost.append(nodeCost[current][i])
         tempIndex = 0
         distanceTemp = 99
         for i in range(len(tempList)):
             if tempCost[i] < distanceTemp :
-                distanceTemp = tempCost[i]
-                tempIndex = tempList[i]
+                distanceTemp = tempCost[i] # 최소비용 찾을 때마다 넣기...
+                tempIndex = tempList[i] # 인덱스도 넣기...
     distanceStack += distanceTemp
     current = tempIndex
 
